@@ -1,0 +1,30 @@
+[package]
+name = "stm32-sht31"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+embedded-hal = "0.2"
+nb = "1"
+cortex-m = "0.7"
+cortex-m-rt = "0.7"
+# Panic behaviour, see https://crates.io/keywords/panic-impl for alternatives
+panic-reset = "0.1.1"
+embedded-alloc = "0.5.0"
+
+[dependencies.stm32f4xx-hal]
+version = "0.16.0"
+features = ["stm32f411"]
+
+[profile.dev]
+opt-level = 0
+lto = true
+debug = 0
+
+[profile.release]
+opt-level = 'z'
+lto = true
+debug = 0
+
